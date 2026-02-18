@@ -7,6 +7,9 @@ import RegisterPage from './pages/RegisterPage';
 import HomePage from './pages/HomePage';
 import ProfilePage from './pages/ProfilePage';
 import SearchPage from './pages/SearchPage';
+import EventsPage from './pages/EventsPage';
+import CreateEventPage from './pages/CreateEventPage';
+import EventDetailsPage from './pages/EventDetailsPage';
 import useAuthStore from './store/authStore';
 
 function App() {
@@ -49,6 +52,32 @@ function App() {
             element={
               <ProtectedRoute>
                 <SearchPage />
+              </ProtectedRoute>
+            }
+          />
+          
+          {/* Event routes */}
+          <Route
+            path="/events"
+            element={
+              <ProtectedRoute>
+                <EventsPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/events/create"
+            element={
+              <ProtectedRoute>
+                <CreateEventPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/events/:id"
+            element={
+              <ProtectedRoute>
+                <EventDetailsPage />
               </ProtectedRoute>
             }
           />

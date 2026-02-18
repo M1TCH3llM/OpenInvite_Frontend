@@ -19,7 +19,11 @@ const HomePage = () => {
 
       <Row className="g-4 mt-4">
         <Col md={4}>
-          <Card className="h-100 shadow-sm text-center">
+          <Card 
+            className="h-100 shadow-sm text-center" 
+            style={{ cursor: 'pointer' }}
+            onClick={() => window.location.href = '/events/create'}
+          >
             <Card.Body className="p-4">
               <div className="display-1 mb-3">📅</div>
               <Card.Title className="fw-bold">Create Events</Card.Title>
@@ -31,7 +35,11 @@ const HomePage = () => {
         </Col>
 
         <Col md={4}>
-          <Card className="h-100 shadow-sm text-center">
+          <Card 
+            className="h-100 shadow-sm text-center"
+            style={{ cursor: 'pointer' }}
+            onClick={() => window.location.href = '/search'}
+          >
             <Card.Body className="p-4">
               <div className="display-1 mb-3">👥</div>
               <Card.Title className="fw-bold">Follow Friends</Card.Title>
@@ -43,7 +51,11 @@ const HomePage = () => {
         </Col>
 
         <Col md={4}>
-          <Card className="h-100 shadow-sm text-center">
+          <Card 
+            className="h-100 shadow-sm text-center"
+            style={{ cursor: 'pointer' }}
+            onClick={() => window.location.href = '/events'}
+          >
             <Card.Body className="p-4">
               <div className="display-1 mb-3">✅</div>
               <Card.Title className="fw-bold">RSVP</Card.Title>
@@ -56,11 +68,11 @@ const HomePage = () => {
       </Row>
 
       <div className="text-center mt-5">
-        <Button as={Link} to="/search" variant="primary" size="lg" className="me-3">
-          Find Friends
+        <Button as={Link} to="/events" variant="primary" size="lg" className="me-3">
+          View Events
         </Button>
-        <Button as={Link} to="/profile" variant="outline-primary" size="lg">
-          View Profile
+        <Button as={Link} to="/search" variant="outline-primary" size="lg">
+          Find Friends
         </Button>
       </div>
 
