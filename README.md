@@ -1,70 +1,223 @@
-# Getting Started with Create React App
+# Open Invite - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern social calendar application built with React. Share events, follow friends, and manage RSVPs all in one place.
 
-## Available Scripts
+![React](https://img.shields.io/badge/React-18.0-blue)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3-purple)
+![Node](https://img.shields.io/badge/Node-18+-green)
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+- **User Authentication**: Secure login and registration with JWT tokens
+- **User Profiles**: View and edit user profiles with bio and profile pictures
+- **Social Following**: Follow/unfollow other users to see their events
+- **Event Management**: Create, view, and manage social events
+- **RSVP System**: Accept or decline event invitations
+- **User Search**: Find and connect with other users
+- **Responsive Design**: Mobile-friendly interface using Bootstrap
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🛠️ Tech Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **React 18** - UI framework
+- **React Router 7** - Client-side routing
+- **Bootstrap 5** - Styling and components
+- **Axios** - HTTP client for API requests
+- **JWT** - Token-based authentication
 
-### `npm test`
+## 📋 Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js 18+ and npm
+- Backend API running (see [OpenInvite_Backend](https://github.com/M1TCH3llM/OpenInvite_Backend))
 
-### `npm run build`
+## 🔧 Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/M1TCH3llM/OpenInvite_Frontend.git
+   cd OpenInvite_Frontend
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **Configure environment**
+   
+   Create a `.env` file in the root directory:
+   ```env
+   REACT_APP_API_URL=http://localhost:8080/api
+   ```
+   
+   For production:
+   ```env
+   REACT_APP_API_URL=http://your-backend-url:8080/api
+   ```
 
-### `npm run eject`
+4. **Start development server**
+   ```bash
+   npm start
+   ```
+   
+   The app will open at [http://localhost:3000](http://localhost:3000)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 📦 Build for Production
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm run build
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Creates an optimized production build in the `build/` directory.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🏗️ Project Structure
 
-## Learn More
+```
+OpenInvite_Frontend/
+├── public/              # Static files
+├── src/
+│   ├── components/      # Reusable UI components
+│   │   ├── Navbar.jsx
+│   │   └── ProtectedRoute.jsx
+│   ├── contexts/        # React context providers
+│   │   └── AuthContext.jsx
+│   ├── pages/           # Page components
+│   │   ├── LoginPage.jsx
+│   │   ├── RegisterPage.jsx
+│   │   ├── HomePage.jsx
+│   │   ├── ProfilePage.jsx
+│   │   ├── EventsPage.jsx
+│   │   ├── EventDetailsPage.jsx
+│   │   ├── CreateEventPage.jsx
+│   │   └── SearchPage.jsx
+│   ├── services/        # API service layer
+│   │   └── authService.js
+│   ├── App.jsx          # Main app component
+│   └── index.jsx        # Entry point
+├── .env                 # Environment variables
+├── package.json
+└── README.md
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🔑 Key Features Explained
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Authentication Flow
+- Uses JWT tokens stored in localStorage
+- Protected routes redirect to login if not authenticated
+- Automatic token inclusion in API requests via Axios interceptors
 
-### Code Splitting
+### State Management
+- AuthContext provides global authentication state
+- Local component state for UI-specific data
+- API responses cached where appropriate
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Routing
+- `/` - Home page (protected)
+- `/login` - Login page
+- `/register` - Registration page
+- `/profile/:userId` - User profile view
+- `/events` - Events list
+- `/events/:eventId` - Event details
+- `/events/new` - Create new event
+- `/search` - User search
 
-### Analyzing the Bundle Size
+## 🎨 Styling
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The app uses Bootstrap 5 for styling with custom CSS overrides. Key design elements:
 
-### Making a Progressive Web App
+- **Color Scheme**: Primary blue with accent colors
+- **Typography**: Modern, readable fonts
+- **Layout**: Responsive grid system
+- **Components**: Bootstrap cards, buttons, forms, and navigation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🚀 Deployment
 
-### Advanced Configuration
+### Automated CI/CD (Jenkins)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The project is configured for automatic deployment via Jenkins:
 
-### Deployment
+1. **Push to GitHub** triggers webhook
+2. **Jenkins pipeline** runs:
+   - Checkout code
+   - Install dependencies
+   - Build production bundle
+   - Deploy to AWS EC2
+   - Restart Nginx
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Manual Deployment
 
-### `npm run build` fails to minify
+1. Build the production bundle:
+   ```bash
+   npm run build
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+2. Deploy the `build/` folder to your web server
+
+3. Configure Nginx to serve the static files:
+   ```nginx
+   server {
+       listen 80;
+       root /var/www/open-invite;
+       index index.html;
+       
+       location / {
+           try_files $uri $uri/ /index.html;
+       }
+       
+       location /api {
+           proxy_pass http://backend-server:8080/api;
+       }
+   }
+   ```
+
+## 🧪 Testing
+
+```bash
+# Run tests (if configured)
+npm test
+
+# Run tests with coverage
+npm test -- --coverage
+```
+
+## 🐛 Common Issues
+
+**Issue**: API requests failing with CORS errors
+- **Solution**: Ensure backend CORS is configured to allow requests from frontend URL
+
+**Issue**: "Module not found" errors
+- **Solution**: Delete `node_modules` and `package-lock.json`, then run `npm install`
+
+**Issue**: Build warnings about missing dependencies
+- **Solution**: Review ESLint warnings and add missing dependencies to useEffect arrays
+
+## 📝 Environment Variables
+
+| Variable | Description | Example |
+|----------|-------------|---------|
+| `REACT_APP_API_URL` | Backend API base URL | `http://localhost:8080/api` |
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 🔗 Related Projects
+
+- [OpenInvite Backend](https://github.com/M1TCH3llM/OpenInvite_Backend) - Spring Boot REST API
+- [OpenInvite Infrastructure](https://github.com/M1TCH3llM/OpenInvite_Infrastructure_Management) - Terraform & Ansible configs
+
+## 👤 Author
+
+**Mitchell Morgan**
+
+
+For issues and questions:
+- Open an issue on GitHub
+- Contact: Mitchell Morgan 
