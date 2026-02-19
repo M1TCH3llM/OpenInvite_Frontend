@@ -20,7 +20,10 @@ const NavigationBar = () => {
     <Navbar bg="primary" variant="dark" expand="lg" className="mb-4">
       <Container>
         <Navbar.Brand as={Link} to="/">
-          <strong>📅 Open Invite</strong>
+          <strong>
+            <i className="bi bi-calendar-check-fill me-2"></i>
+              Open Invite
+          </strong>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -32,7 +35,8 @@ const NavigationBar = () => {
           </Nav>
           <Nav>
             <Navbar.Text className="me-3">
-              👤 {user?.displayName}
+              <i className="bi bi-person-circle me-1"></i>
+              {user?.displayName}
             </Navbar.Text>
             <Button variant="outline-light" size="sm" onClick={handleLogout}>
               Logout

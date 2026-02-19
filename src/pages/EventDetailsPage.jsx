@@ -118,47 +118,49 @@ const EventDetailsPage = () => {
               {event.description && (
                 <p className="mb-4">{event.description}</p>
               )}
-
-              <div className="mb-4">
+                <div className="mb-4">
                 <div className="d-flex align-items-start mb-2">
-                  <span className="me-2 fs-5">📅</span>
-                  <div>
+                    <i className="bi bi-calendar-event me-2 fs-5 text-primary"></i>
+                    <div>
                     <strong>Starts:</strong> {formatDateTime(event.startDateTime)}
                     {event.endDateTime && (
-                      <div><strong>Ends:</strong> {formatDateTime(event.endDateTime)}</div>
+                        <div><strong>Ends:</strong> {formatDateTime(event.endDateTime)}</div>
                     )}
-                  </div>
+                    </div>
                 </div>
                 {event.location && (
-                  <div className="d-flex align-items-center">
-                    <span className="me-2 fs-5">📍</span>
+                    <div className="d-flex align-items-center">
+                    <i className="bi bi-geo-alt-fill me-2 fs-5 text-primary"></i>
                     <strong>{event.location}</strong>
-                  </div>
+                    </div>
                 )}
-              </div>
+                </div>
 
-              {!isCreator && (
+                {!isCreator && (
                 <div className="d-flex gap-2">
-                  <Button
+                    <Button
                     variant={event.currentUserRSVP === 'GOING' ? 'success' : 'outline-success'}
                     onClick={() => handleRSVP('GOING')}
-                  >
-                    ✅ Going
-                  </Button>
-                  <Button
+                    >
+                    <i className="bi bi-check-circle-fill me-1"></i>
+                    Going
+                    </Button>
+                    <Button
                     variant={event.currentUserRSVP === 'MAYBE' ? 'warning' : 'outline-warning'}
                     onClick={() => handleRSVP('MAYBE')}
-                  >
-                    🤔 Maybe
-                  </Button>
-                  <Button
+                    >
+                    <i className="bi bi-question-circle-fill me-1"></i>
+                    Maybe
+                    </Button>
+                    <Button
                     variant={event.currentUserRSVP === 'NOT_GOING' ? 'danger' : 'outline-danger'}
                     onClick={() => handleRSVP('NOT_GOING')}
-                  >
-                    ❌ Can't Go
-                  </Button>
+                    >
+                    <i className="bi bi-x-circle-fill me-1"></i>
+                    Can't Go
+                    </Button>
                 </div>
-              )}
+                )}
 
               {isCreator && (
                 <div className="d-flex gap-2 mt-3">

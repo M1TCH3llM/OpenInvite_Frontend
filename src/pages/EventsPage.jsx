@@ -68,29 +68,30 @@ const EventsPage = () => {
           <Card.Text className="text-muted">{event.description}</Card.Text>
         )}
 
-        <div className="mb-3">
-          <div className="d-flex align-items-center mb-1">
-            <span className="me-2">📅</span>
+     <div className="mb-3">
+        <div className="d-flex align-items-center mb-1">
+            <i className="bi bi-calendar-event me-2 text-primary"></i>
             <small>{formatDateTime(event.startDateTime)}</small>
-          </div>
-          {event.location && (
+        </div>
+        {event.location && (
             <div className="d-flex align-items-center">
-              <span className="me-2">📍</span>
-              <small>{event.location}</small>
+            <i className="bi bi-geo-alt-fill me-2 text-primary"></i>
+            <small>{event.location}</small>
             </div>
-          )}
+        )}
         </div>
 
         <div className="d-flex justify-content-between align-items-center">
-          <div className="d-flex gap-2">
-            <Badge bg="light" text="dark">
-              ✅ {event.goingCount} Going
+        <div className="d-flex gap-2">
+            <Badge bg="success">
+            <i className="bi bi-check-circle-fill me-1"></i>
+            {event.goingCount} Going
             </Badge>
-            <Badge bg="light" text="dark">
-              🤔 {event.maybeCount} Maybe
+            <Badge bg="warning">
+            <i className="bi bi-question-circle-fill me-1"></i>
+            {event.maybeCount} Maybe
             </Badge>
-          </div>
-
+        </div>
           {showCreator ? (
             <div className="btn-group">
               <Button

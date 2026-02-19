@@ -10,5 +10,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f8f9fa;
+  background-color: #212529 ;
+}
+
+.hero-section,
+.text-center.mb-5 {
+  background-color: transparent !important;
 }
